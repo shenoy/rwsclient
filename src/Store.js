@@ -58,7 +58,7 @@ export default function Store(props) {
   const [allChats, dispatch] = React.useReducer(reducer, initState);
   if (!socket) {
     // socket = io(":8000");
-    socket = openSocket(`http://localhost:8000`);
+    socket = openSocket(`https://reactwschat.herokuapp.com/`);
     socket.on("chat message", function(msg) {
       console.log(msg, "socket received message");
       dispatch({ type: "RECEIVE_MESSAGE", payload: msg });

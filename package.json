@@ -19,8 +19,8 @@
     "uws": "^10.148.1"
   },
   "scripts": {
-    "server": "node src/server/index.js",
     "client": "react-scripts start",
+    "server": "node src/server/index.js",
     "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "eslintConfig": {
@@ -37,5 +37,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "https://reactwschat.herokuapp.com/"
 }
