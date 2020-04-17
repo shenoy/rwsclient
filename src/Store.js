@@ -2,7 +2,6 @@ import React from "react";
 import io from "socket.io-client";
 import openSocket from "socket.io-client";
 
-
 export const CTX = React.createContext();
 
 const initState = {
@@ -27,6 +26,54 @@ const initState = {
       from: "Friedrich",
       msg:
         "To live is to suffer, to survive is to find some meaning in the suffering."
+    }
+  ],
+
+  javascript: [
+    {
+      from: "Jesus",
+      msg: "All my authority in heaven and on earth has been given to me."
+    },
+    {
+      from: "Friedrich",
+      msg:
+        "To live is to suffer, to survive is to find some meaning in the suffering."
+    }
+  ],
+
+  dotnet: [
+    {
+      from: "Arnold",
+      msg:
+        "Strength does not come from winning. Your struggles develop your strengths."
+    },
+    {
+      from: "Sylvester",
+      msg: "Success is usually the culmination of controlling failure."
+    }
+  ],
+
+  Csharp: [
+    {
+      from: "Arnold",
+      msg:
+        "Strength does not come from winning. Your struggles develop your strengths."
+    },
+    {
+      from: "Sylvester",
+      msg: "Success is usually the culmination of controlling failure."
+    }
+  ],
+
+  Cplusplus: [
+    {
+      from: "Arnold",
+      msg:
+        "Strength does not come from winning. Your struggles develop your strengths."
+    },
+    {
+      from: "Sylvester",
+      msg: "Success is usually the culmination of controlling failure."
     }
   ]
 };
@@ -57,8 +104,7 @@ function sendChatAction(value) {
 export default function Store(props) {
   const [allChats, dispatch] = React.useReducer(reducer, initState);
   if (!socket) {
-    // socket = io(":8000");
-    socket = openSocket(`https://reactwschat.herokuapp.com/`);
+    socket = openSocket(`https://rwsserver.herokuapp.com/`);
     socket.on("chat message", function(msg) {
       console.log(msg, "socket received message");
       dispatch({ type: "RECEIVE_MESSAGE", payload: msg });
