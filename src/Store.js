@@ -104,7 +104,7 @@ function sendChatAction(value) {
 export default function Store(props) {
   const [allChats, dispatch] = React.useReducer(reducer, initState);
   if (!socket) {
-    socket = openSocket(`https://rwsserver.herokuapp.com/`);
+    socket = openSocket(`https://rwsserver.herokuapp.com`);
     socket.on("chat message", function(msg) {
       console.log(msg, "socket received message");
       dispatch({ type: "RECEIVE_MESSAGE", payload: msg });
