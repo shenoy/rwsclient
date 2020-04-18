@@ -13,4 +13,4 @@ To run this chat :
 3) node /server/index.js   ------->  runs the express server and socket.io 
  
 
-4) npm start      -------->  uns the react frontend 
+4) npm start      -------->  runs the react frontend 
