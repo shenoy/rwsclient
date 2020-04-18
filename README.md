@@ -1,5 +1,5 @@
 # rwsclient
-react frontend for the websocket chat app  rwsclient.herokuapp.com
+react websocket chat site 
 
 
 To run this chat : 
