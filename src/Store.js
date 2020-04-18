@@ -1,11 +1,10 @@
 import React from "react";
 import io from "socket.io-client";
-import openSocket from "socket.io-client";
 
 export const CTX = React.createContext();
 
 const initState = {
-  java: [
+  Java: [
     {
       from: "Arnold",
       msg:
@@ -17,7 +16,7 @@ const initState = {
     }
   ],
 
-  python: [
+  Python: [
     {
       from: "Jesus",
       msg: "All my authority in heaven and on earth has been given to me."
@@ -29,7 +28,7 @@ const initState = {
     }
   ],
 
-  javascript: [
+  Javascript: [
     {
       from: "Jesus",
       msg: "All my authority in heaven and on earth has been given to me."
@@ -41,7 +40,7 @@ const initState = {
     }
   ],
 
-  dotnet: [
+  Fortran: [
     {
       from: "Arnold",
       msg:
@@ -53,7 +52,7 @@ const initState = {
     }
   ],
 
-  Csharp: [
+  C: [
     {
       from: "Arnold",
       msg:
@@ -65,7 +64,7 @@ const initState = {
     }
   ],
 
-  Cplusplus: [
+  Cobol: [
     {
       from: "Arnold",
       msg:
@@ -102,9 +101,11 @@ function sendChatAction(value) {
 }
 
 export default function Store(props) {
+
   const [allChats, dispatch] = React.useReducer(reducer, initState);
+
   if (!socket) {
-    socket = openSocket(`https://rwsserver.herokuapp.com`);
+    socket = io(":8000");
     socket.on("chat message", function(msg) {
       console.log(msg, "socket received message");
       dispatch({ type: "RECEIVE_MESSAGE", payload: msg });
